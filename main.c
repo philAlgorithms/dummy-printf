@@ -11,6 +11,9 @@ int main(void)
 	char d = '1';
 
 	args = _printf("hello %co%c\nI love the way you role\nYou are my number: %c\n", c, y, d);
-	//printf("number of args printed: %d\n", args);
+	printf("number of args printed: %d\n", args);
+
+	args = _printf("King Lucas Bolt\n");
+	printf("number of args printed: %d\n", args);
 	return (0);
 }

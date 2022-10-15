@@ -4,6 +4,43 @@
 #include <stdlib.h>
 
 /**
+ * get_strlen - calculates amount of memory to allocate
+ * @format: string format
+ * @ap: va_list ap
+ * Return: amount of memory to allocate
+ */
+int get_strlen(const char *format, va_list ap)
+{
+	int count = 0, index = 0, ap_index;
+	char *str;
+
+	while (format[index])
+	{
+		if (format[index] == '%' && format[index + 1] == 'c')
+		{
+			count++;
+			index += 2;
+			continue;
+		}
+
+		if (format[index] == '%' && format[index + 1] == 's')
+		{
+			str = va_arg(ap, char *);
+			ap_index = 0;
+
+			while (str[ap_index])
+				count++;
+			index += 2;
+			continue;
+
+		}
+		count++;
+		index++;
+	}
+	return (count);
+
+}
+/**
  * check_char - checks if @arg is char
  * @arg: argument to compare
  * Return: returns 1 if arg is char, else 0.
@@ -26,7 +63,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 	int arg_count = 0;
 	int index = 0, c, index2 = 0;
-	char buff[45];
+	char *buff = malloc(sizeof(char) * get_strlen(format, ap));
 
 	va_start(ap, format);
 
