@@ -14,6 +14,7 @@ int (*handle_conversion(const char *format))(va_list params)
 
 	convert_t functions[] = {
 		{'c', print_c},
+		{'s', print_s},
 		{0, NULL}
 	};
 
