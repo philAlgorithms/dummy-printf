@@ -43,6 +43,10 @@ int _printf(const char *format, ...)
 	for (i = 0; *(format + i) != '\0'; i++)
 	{
 		if (*(format + i) == '%'){
+			if(*(format + i + 1) == '%'){
+				write(1, format + ++i, 1);
+				continue;
+			}
 			handle_conversion(format + ++i)(params);
 		}
 		else
