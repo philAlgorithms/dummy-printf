@@ -1,0 +1,6 @@
+tests
+a.out
+*.swp
+*.swo
+*main.c
+personal
