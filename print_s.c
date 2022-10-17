@@ -9,8 +9,9 @@ int print_s(va_list arg)
 {
 	char *str;
 	int count = 0, index = 0;
+
 	str = va_arg(arg, char *);
-	
+
 	while (str[index])
 	{
 		count++;

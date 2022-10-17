@@ -13,7 +13,7 @@ int print_c(va_list params)
 
 	chr = va_arg(params, int);
 	chr_ptr = &chr;
-	
+
 	write(1, chr_ptr, 1);
 
 	return (0);

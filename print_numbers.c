@@ -3,6 +3,7 @@
 /**
  * print_number - prints an integer
  * @n: The integer
+ * Return: returns count of char
  */
 int print_number(int n)
 {
@@ -23,8 +24,7 @@ int print_number(int n)
 
 /**
  * print_d - prints a decimal
- * @n: the decimal
- *
+ * @params: the decimal
  * Return: a number
  */
 int print_d(va_list params)
@@ -33,13 +33,12 @@ int print_d(va_list params)
 
 	d = va_arg(params, int);
 
-	return print_number(d);
+	return (print_number(d));
 }
 
 /**
  * print_i - prints a integer
- * @n: the integer
- *
+ * @params: the integer
  * Return: a number
  */
 int print_i(va_list params)
@@ -48,5 +47,5 @@ int print_i(va_list params)
 
 	i = va_arg(params, int);
 
-	return print_number(i);
+	return (print_number(i));
 }

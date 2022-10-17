@@ -1,0 +1,36 @@
+#include "main.c"
+
+/**
+ * file - handles %d specifier for the _printf function.
+ * Author - Chisom Ibekwe
+ * Co-author - Philip Olisaemeka Nwokedi
+ */
+
+/**
+ * print_num - converts numbers to char and writes to the console
+ * @num: integer input
+ * @count: counts number of chars printed
+ * Return: returns count
+ */
+print_num(int num)
+{
+	if (num < 0)
+	{
+		write(1, "-", 1);
+		num = 
+	}
+}
+/**
+ * print_d - handles the %d specifier
+ * @arg: va_list arg
+ * Return: returns 0
+ */
+int print_d(va_list arg)
+{
+	int num;
+
+	num = va_arg(arg, int);
+	count = print_num(num);
+
+	return (0);
+}
