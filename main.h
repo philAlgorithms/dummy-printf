@@ -15,7 +15,22 @@ typedef struct converter {
 
 int (*handle_conversion(const char *format))(va_list params);
 
+/**
+ * helper functions
+ */
+int _putchar(char c);
+
+/**
+ * concerning charactees and strings
+ */
 int print_c(va_list params);
 int print_s(va_list args);
+
+/**
+ * Concerning numbers
+ */
+int print_number(int n);
+int print_d(va_list params);
+int print_i(va_list params);
 
 #endif
