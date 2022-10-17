@@ -2,7 +2,7 @@
 /**
  * print_c - prints a single character
  * @params: argument list containing the character to be printed
- *
+ * @counter : args counter
  * Return: 0
  */
 int print_c(va_list params, int *counter)
@@ -14,7 +14,7 @@ int print_c(va_list params, int *counter)
 	chr_ptr = &chr;
 
 	write(1, chr_ptr, 1);
-	*(counter)++;
+	*(counter) += 1;
 
 	return (0);
 }

@@ -3,6 +3,7 @@
 /**
  * print_s - handles %s format
  * @arg: va_list arg
+ * @counter: arg counter
  * Return: 0
  */
 int print_s(va_list arg, int *counter)

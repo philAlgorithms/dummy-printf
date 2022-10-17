@@ -13,7 +13,6 @@ typedef struct converter {
 	int (*callback)(va_list params, int *counter);
 } convert_t;
 
-int (*handle_conversion(const char *format))(va_list params, int *counter);
 
 /**
  * helper functions
@@ -23,8 +22,8 @@ int _putchar(char c);
 /**
  * concerning characters and strings
  */
-int print_c(va_list params, int *counter);
-int print_s(va_list args, int *counter);
+int print_s(va_list params, int *counter);
+int print_c(va_list args, int *counter);
 
 /**
  * Concerning numbers
@@ -32,5 +31,5 @@ int print_s(va_list args, int *counter);
 int print_number(int n);
 int print_d(va_list params, int *counter);
 int print_i(va_list params, int *counter);
-
+int (*handle_conversion(const char *format))(va_list params, int *counter);
 #endif

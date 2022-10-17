@@ -26,6 +26,7 @@ int print_number(int n)
 /**
  * print_d - prints a decimal
  * @params: the decimal
+ * @counter: args counter
  * Return: a number
  */
 int print_d(va_list params, int *counter)
@@ -41,6 +42,7 @@ int print_d(va_list params, int *counter)
 /**
  * print_i - prints a integer
  * @params: the integer
+ * @counter: args counter
  * Return: a number
  */
 int print_i(va_list params, int *counter)
