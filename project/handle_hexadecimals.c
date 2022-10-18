@@ -1,8 +1,8 @@
 #include "main.h"
 
-unsigned int handle_x(va_list args, buffer_t *output,
+unsigned int handle_x(va_list args, buf * output,
 		unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int handle_X(va_list args, buffer_t *output,
+unsigned int handle_X(va_list args, buf *output,
 		unsigned char flags, int wid, int prec, unsigned char len);
 
 /**
@@ -13,11 +13,11 @@ unsigned int handle_X(va_list args, buffer_t *output,
  * @wid: A width modifier.
  * @prec: A precision modifier.
  * @len: A length modifier.
- * @output: A buffer_t struct containing a character array.
+ * @output: A buf struct containing a character array.
  *
  * Return: The number of bytes stored to the buffer.
  */
-unsigned int handle_x(va_list args, buffer_t *output,
+unsigned int handle_x(va_list args, buf *output,
 		unsigned char flags, int wid, int prec, unsigned char len)
 {
 	unsigned long int num;
@@ -51,11 +51,11 @@ unsigned int handle_x(va_list args, buffer_t *output,
  * @wid: A width modifier.
  * @prec: A precision modifier.
  * @len: A length modifier.
- * @output: A buffer_t struct containing a character array.
+ * @output: A buf struct containing a character array.
  *
  * Return: The number of bytes stored to the buffer.
  */
-unsigned int handle_X(va_list args, buffer_t *output,
+unsigned int handle_X(va_list args, buf *output,
 		unsigned char flags, int wid, int prec, unsigned char len)
 {
 	unsigned long int num;

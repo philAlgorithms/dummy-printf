@@ -1,15 +1,15 @@
 #include "main.h"
 
-void cleanup(va_list params, buffer_t *output);
-int handle_printf(const char *specifier, va_list params, buffer_t *output);
+void cleanup(va_list params, buf *output);
+int handle_printf(const char *specifier, va_list params, buf *output);
 int _printf(const char *specifier, ...);
 
 /**
  * cleanup - Peforms cleanup operations for _printf.
  * @params: A va_list of arguments provided to _printf.
- * @output: A buffer_t struct.
+ * @output: A buf struct.
  */
-void cleanup(va_list params, buffer_t *output)
+void cleanup(va_list params, buf *output)
 {
 	va_end(params);
 	write(1, output->start, output->len);
@@ -17,20 +17,19 @@ void cleanup(va_list params, buffer_t *output)
 }
 
 /**
- * run_printf - Reads through the format string for _printf.
+ * handle_printf - Reads through the format string for _printf.
  * @specifier: Character string to print - may contain directives.
- * @output: A buffer_t struct containing a buffer.
+ * @output: A buf struct containing a buffer.
  * @params: A va_list of arguments.
  *
  * Return: The number of characters stored to output.
  */
-int handle_printf(const char *specifier, va_list params, buffer_t *output)
+int handle_printf(const char *specifier, va_list params, buf *output)
 {
 	int i, wid, prec, count = 0;
 	char tmp;
 	unsigned char flags, len;
-	unsigned int (*f)(va_list, buffer_t *,
-			unsigned char, int, int, unsigned char);
+	unsigned int (*f)(va_list, buf *, unsigned char, int, int, unsigned char);
 
 	for (i = 0; *(specifier + i); i++)
 	{
@@ -44,7 +43,7 @@ int handle_printf(const char *specifier, va_list params, buffer_t *output)
 					&tmp);
 			len = handle_length(specifier + i + tmp + 1, &tmp);
 
-			f = handle_specifiers(specifier + i + tmp + 1);
+			f = h_s(specifier + i + tmp + 1);
 			if (f != NULL)
 			{
 				i += tmp + 1;
@@ -65,14 +64,15 @@ int handle_printf(const char *specifier, va_list params, buffer_t *output)
 }
 
 /**
- * _printf - Outputs a formatted string.
+ * _printf - outputs a formated string
  * @specifier: Character string to print - may contain directives.
  *
  * Return: The number of characters printed.
  */
+
 int _printf(const char *specifier, ...)
 {
-	buffer_t *output;
+	buf *output;
 	va_list params;
 	int count;
 

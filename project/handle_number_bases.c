@@ -1,15 +1,15 @@
 #include "main.h"
 
-unsigned int handle_sbase(buffer_t *output, long int num, char *base,
+unsigned int handle_sbase(buf * output, long int num, char *base,
 		unsigned char flags, int wid, int prec);
-unsigned int handle_ubase(buffer_t *output,
+unsigned int handle_ubase(buf *output,
 		unsigned long int num, char *base,
 		unsigned char flags, int wid, int prec);
 
 /**
  * handle_sbase - Converts a signed long to an inputted base and stores
  *                 the result to a buffer contained in a struct.
- * @output: A buffer_t struct containing a character array.
+ * @output: A buf struct containing a character array.
  * @num: A signed long to be converted.
  * @base: A pointer to a string containing the base to convert to.
  * @flags: Flag modifiers.
@@ -18,7 +18,7 @@ unsigned int handle_ubase(buffer_t *output,
  *
  * Return: The number of bytes stored to the buffer.
  */
-unsigned int handle_sbase(buffer_t *output, long int num, char *base,
+unsigned int handle_sbase(buf *output, long int num, char *base,
 		unsigned char flags, int wid, int prec)
 {
 	int size;
@@ -54,7 +54,7 @@ unsigned int handle_sbase(buffer_t *output, long int num, char *base,
 /**
  * handle_ubase - Converts an unsigned long to an inputted base and
  *                 stores the result to a buffer contained in a struct.
- * @output: A buffer_t struct containing a character array.
+ * @output: A buf struct containing a character array.
  * @num: An unsigned long to be converted.
  * @base: A pointer to a string containing the base to convert to.
  * @flags: Flag modifiers.
@@ -63,7 +63,7 @@ unsigned int handle_sbase(buffer_t *output, long int num, char *base,
  *
  * Return: The number of bytes stored to the buffer.
  */
-unsigned int handle_ubase(buffer_t *output, unsigned long int num, char *base,
+unsigned int handle_ubase(buf *output, unsigned long int num, char *base,
 		unsigned char flags, int wid, int prec)
 {
 	unsigned int size, ret = 1;

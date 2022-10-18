@@ -1,12 +1,12 @@
 #include "main.h"
 
-unsigned int handle_s(va_list args, buffer_t *output,
+unsigned int handle_s(va_list args, buf * output,
 		unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int handle_S(va_list args, buffer_t *output,
+unsigned int handle_S(va_list args, buf *output,
 		unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int handle_r(va_list args, buffer_t *output,
+unsigned int handle_r(va_list args, buf *output,
 		unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int handle_R(va_list args, buffer_t *output,
+unsigned int handle_R(va_list args, buf *output,
 		unsigned char flags, int wid, int prec, unsigned char len);
 
 /**
@@ -17,11 +17,11 @@ unsigned int handle_R(va_list args, buffer_t *output,
  * @wid: A width modifier.
  * @prec: A precision modifier.
  * @len: A length modifier.
- * @output: A buffer_t struct containing a character array.
+ * @output: A buf struct containing a character array.
  *
  * Return: The number of bytes stored to the buffer.
  */
-unsigned int handle_s(va_list args, buffer_t *output,
+unsigned int handle_s(va_list args, buf *output,
 		unsigned char flags, int wid, int prec, unsigned char len)
 {
 	char *str, *null = "(null)";
@@ -61,14 +61,14 @@ unsigned int handle_s(va_list args, buffer_t *output,
  * @wid: A width modifier.
  * @prec: A precision modifier.
  * @len: A length modifier.
- * @output: A buffer_t struct containing a character array.
+ * @output: A buf struct containing a character array.
  *
  * Return: The number of bytes stored to the buffer.
  *
  * Description: Non-printable characteres (ASCII values < 32 or >= 127)
  *              are stored as \x followed by the ASCII code value in hex.
  */
-unsigned int handle_S(va_list args, buffer_t *output,
+unsigned int handle_S(va_list args, buf *output,
 		unsigned char flags, int wid, int prec, unsigned char len)
 {
 	char *str, *null = "(null)", *hex = "\\x", zero = '0';
@@ -113,11 +113,11 @@ unsigned int handle_S(va_list args, buffer_t *output,
  * @wid: A width modifier.
  * @prec: A precision modifier.
  * @len: A length modifier.
- * @output: A buffer_t struct containing a character array.
+ * @output: A buf struct containing a character array.
  *
  * Return: The number of bytes stored to the buffer.
  */
-unsigned int handle_r(va_list args, buffer_t *output,
+unsigned int handle_r(va_list args, buf *output,
 		unsigned char flags, int wid, int prec, unsigned char len)
 {
 	char *str, *null = "(null)";
@@ -157,11 +157,11 @@ unsigned int handle_r(va_list args, buffer_t *output,
  * @wid: A width modifier.
  * @prec: A precision modifier.
  * @len: A lenth modifier.
- * @output: A buffer_t struct containing a character array.
+ * @output: A buf struct containing a character array.
  *
  * Return: The number of bytes stored to the buffer.
  */
-unsigned int handle_R(va_list args, buffer_t *output,
+unsigned int handle_R(va_list args, buf *output,
 		unsigned char flags, int wid, int prec, unsigned char len)
 {
 	char *alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";

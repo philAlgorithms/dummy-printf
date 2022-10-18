@@ -4,8 +4,7 @@ unsigned char handle_flags(const char *flag, char *index);
 unsigned char handle_length(const char *modifier, char *index);
 int handle_width(va_list args, const char *modifier, char *index);
 int handle_precision(va_list args, const char *modifier, char *index);
-unsigned int (*handle_specifiers(const char *specifier))(va_list, buffer_t *,
-		unsigned char, int, int, unsigned char);
+
 
 /**
  * handle_flags - Matches flags with corresponding values.
@@ -158,14 +157,14 @@ int handle_precision(va_list args, const char *modifier, char *index)
 }
 
 /**
- * handle_specifiers - Matches a conversion specifier with
+ * h_s - Matches a conversion specifier with
  *                     a corresponding conversion function.
- * @specifier: A pointer to a potential conversion specifier.
- *
+ * @char: char
+ * @int: int
  * Return: If a conversion function is matched - a pointer to the function.
  *         Otherwise - NULL.
  */
-unsigned int (*handle_specifiers(const char *specifier))(va_list, buffer_t *,
+unsigned int (*h_s(const char *specifier))(va_list, buf *,
 		unsigned char, int, int, unsigned char)
 {
 	int i;
